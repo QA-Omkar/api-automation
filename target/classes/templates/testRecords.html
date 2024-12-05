@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Records</title>
+    <style>
+        pre {
+            font-family: monospace;
+            white-space: pre-wrap; /* Ensures long lines wrap */
+            word-wrap: break-word; /* Breaks long words */
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Records Output</h1>
+
+    <pre th:text="${consoleOutput}"></pre>
+</body>
+</html>

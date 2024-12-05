@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="12" passed="11" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-05T18:17:31 IST" name="Command line suite" finished-at="2024-12-05T18:17:58 IST" duration-ms="27008">
+    <groups>
+    </groups>
+    <test started-at="2024-12-05T18:17:31 IST" name="Command line test" finished-at="2024-12-05T18:17:58 IST" duration-ms="27008">
+      <class name="testautomationZineUrl.control.TestController">
+        <test-method signature="VerifyOtp()[pri:1, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:31 IST" name="VerifyOtp" finished-at="2024-12-05T18:17:39 IST" duration-ms="7827" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyOtp -->
+        <test-method signature="NewUserRegister()[pri:2, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:39 IST" name="NewUserRegister" finished-at="2024-12-05T18:17:42 IST" duration-ms="2992" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NewUserRegister -->
+        <test-method signature="Login()[pri:3, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:42 IST" name="Login" finished-at="2024-12-05T18:17:47 IST" duration-ms="5295" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="GetUser()[pri:4, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:47 IST" name="GetUser" finished-at="2024-12-05T18:17:49 IST" duration-ms="1654" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetUser -->
+        <test-method signature="UpdateUser()[pri:5, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:49 IST" name="UpdateUser" finished-at="2024-12-05T18:17:51 IST" duration-ms="2369" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateUser -->
+        <test-method signature="GetTemplate()[pri:6, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:51 IST" name="GetTemplate" finished-at="2024-12-05T18:17:52 IST" duration-ms="1113" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetTemplate -->
+        <test-method signature="CreateZine()[pri:7, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:52 IST" name="CreateZine" finished-at="2024-12-05T18:17:53 IST" duration-ms="644" status="FAIL">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[Critical test 'Zine Created Successfully' failed.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: Critical test 'Zine Created Successfully' failed.
+at testautomationZineUrl.control.TestController.CreateZine(TestController.java:858)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at testautomationZineUrl.control.TestController.runTests(TestController.java:50)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+at java.base/java.lang.Thread.run(Thread.java:1570)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateZine -->
+        <test-method signature="GetCompleteZine()[pri:8, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:53 IST" name="GetCompleteZine" finished-at="2024-12-05T18:17:55 IST" duration-ms="1499" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetCompleteZine -->
+        <test-method signature="GetAllSqlZine()[pri:9, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:55 IST" name="GetAllSqlZine" finished-at="2024-12-05T18:17:55 IST" duration-ms="538" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetAllSqlZine -->
+        <test-method signature="GetOthersZine()[pri:10, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:55 IST" name="GetOthersZine" finished-at="2024-12-05T18:17:57 IST" duration-ms="1631" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GetOthersZine -->
+        <test-method signature="FetchOwnZine()[pri:11, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:57 IST" name="FetchOwnZine" finished-at="2024-12-05T18:17:58 IST" duration-ms="1296" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FetchOwnZine -->
+        <test-method signature="printAllRecords()[pri:12, instance:testautomationZineUrl.control.TestController@310452b4]" started-at="2024-12-05T18:17:58 IST" name="printAllRecords" finished-at="2024-12-05T18:17:58 IST" duration-ms="28" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printAllRecords -->
+      </class> <!-- testautomationZineUrl.control.TestController -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
