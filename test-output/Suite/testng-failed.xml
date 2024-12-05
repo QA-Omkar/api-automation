@@ -7,6 +7,7 @@
         <methods>
           <include name="CreateZine"/>
           <include name="GetTemplate"/>
+          <include name="VerifyOtp"/>
           <include name="GetCompleteZine"/>
           <include name="UpdateUser"/>
           <include name="FetchOwnZine"/>

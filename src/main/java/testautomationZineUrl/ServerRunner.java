@@ -16,7 +16,5 @@ class ServerRunner {
         // This will start the Spring Boot server
         SpringApplication.run(ServerRunner.class, args);
 
-
-
     }
 }

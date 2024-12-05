@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>11/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Dec 05 18:57:48 IST 2024</td>
+<td>Started on:</td><td>Tue Dec 10 13:45:21 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>24 seconds (24797 ms)</td>
+<tr><td>Total time:</td><td>26 seconds (26378 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -70,7 +70,6 @@ function toggleAllBoxes() {
 <table width='100%' border='1' class='invocation-failed'>
 <tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
@@ -78,9 +77,9 @@ function toggleAllBoxes() {
 <tr>
 <td title='testautomationZineUrl.control.TestController.CreateZine()'><b>CreateZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td><div><pre>java.lang.RuntimeException: Critical test &apos;Zine Created Successfully&apos; failed.
-	at testautomationZineUrl.control.TestController.CreateZine(TestController.java:750)
+	at testautomationZineUrl.control.TestController.CreateZine(TestController.java:785)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at testautomationZineUrl.control.TestController.runTests(TestController.java:50)
+	at testautomationZineUrl.control.TestController.runTests(TestController.java:83)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
@@ -90,8 +89,8 @@ function toggleAllBoxes() {
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
@@ -127,33 +126,33 @@ function toggleAllBoxes() {
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:1570)
-... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace562277836", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace562277836'><pre>java.lang.RuntimeException: Critical test &apos;Zine Created Successfully&apos; failed.
-	at testautomationZineUrl.control.TestController.CreateZine(TestController.java:750)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2063806686", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2063806686'><pre>java.lang.RuntimeException: Critical test &apos;Zine Created Successfully&apos; failed.
+	at testautomationZineUrl.control.TestController.CreateZine(TestController.java:785)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at testautomationZineUrl.control.TestController.runTests(TestController.java:50)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at testautomationZineUrl.control.TestController.runTests(TestController.java:83)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
@@ -165,8 +164,8 @@ function toggleAllBoxes() {
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
@@ -204,71 +203,70 @@ function toggleAllBoxes() {
 	at java.base/java.lang.Thread.run(Thread.java:1570)
 </pre></div></td>
 <td>0</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testautomationZineUrl.control.TestController.GetUser()'><b>GetUser</b><br>Test class: testautomationZineUrl.control.TestController</td>
+<td title='testautomationZineUrl.control.TestController.GetOthersZine()'><b>GetOthersZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td></td>
-<td>1</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
-<tr>
-<td title='testautomationZineUrl.control.TestController.GetCompleteZine()'><b>GetCompleteZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
-<td></td>
-<td>1</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>2</td>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 <tr>
 <td title='testautomationZineUrl.control.TestController.GetTemplate()'><b>GetTemplate</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td></td>
 <td>1</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
-<tr>
-<td title='testautomationZineUrl.control.TestController.GetOthersZine()'><b>GetOthersZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
-<td></td>
-<td>1</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 <tr>
 <td title='testautomationZineUrl.control.TestController.Login()'><b>Login</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td></td>
 <td>4</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
-<tr>
-<td title='testautomationZineUrl.control.TestController.GetAllSqlZine()'><b>GetAllSqlZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
-<td></td>
-<td>0</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
-<tr>
-<td title='testautomationZineUrl.control.TestController.FetchOwnZine()'><b>FetchOwnZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
-<td></td>
-<td>1</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
-<tr>
-<td title='testautomationZineUrl.control.TestController.VerifyOtp()'><b>VerifyOtp</b><br>Test class: testautomationZineUrl.control.TestController</td>
-<td></td>
-<td>5</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 <tr>
 <td title='testautomationZineUrl.control.TestController.NewUserRegister()'><b>NewUserRegister</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td></td>
 <td>2</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 <tr>
 <td title='testautomationZineUrl.control.TestController.UpdateUser()'><b>UpdateUser</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td></td>
+<td>3</td>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
+<tr>
+<td title='testautomationZineUrl.control.TestController.FetchOwnZine()'><b>FetchOwnZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
+<td></td>
 <td>2</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
+<tr>
+<td title='testautomationZineUrl.control.TestController.GetUser()'><b>GetUser</b><br>Test class: testautomationZineUrl.control.TestController</td>
+<td></td>
+<td>1</td>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
+<tr>
+<td title='testautomationZineUrl.control.TestController.GetAllSqlZine()'><b>GetAllSqlZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
+<td></td>
+<td>0</td>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 <tr>
 <td title='testautomationZineUrl.control.TestController.printAllRecords()'><b>printAllRecords</b><br>Test class: testautomationZineUrl.control.TestController</td>
 <td></td>
 <td>0</td>
-<td>testautomationZineUrl.control.TestController@7a7f424</td></tr>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
+<tr>
+<td title='testautomationZineUrl.control.TestController.GetCompleteZine()'><b>GetCompleteZine</b><br>Test class: testautomationZineUrl.control.TestController</td>
+<td></td>
+<td>3</td>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
+<tr>
+<td title='testautomationZineUrl.control.TestController.VerifyOtp()'><b>VerifyOtp</b><br>Test class: testautomationZineUrl.control.TestController</td>
+<td></td>
+<td>2</td>
+<td>testautomationZineUrl.control.TestController@405b120a</td></tr>
 </table><p>
 </body>
 </html>

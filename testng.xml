@@ -5,8 +5,8 @@
     <classes>
       <class name="testautomationZineUrl.control.TestController">
         <methods>
-          <include name="NewUserRegister" />
           <include name="VerifyOtp" />
+          <include name="NewUserRegister" />
           <include name="Login" />
           <include name="GetUser" />
           <include name="UpdateUser" />

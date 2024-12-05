@@ -1,9 +1,9 @@
 TestName,ApiUrl,Endpoint,Method,Payload,ExpectedStatus,ActualStatus,ResponseBody,Result,Auth,Headers,Critical
-Send OTP For Registration,https://zineup-api.codesncoffee.com/api/v1/user/register-user,/user/register-user,POST,"{ ""name"": ""Prakash"", ""email"": ""prakash+23@codesncoffee.com"" }",201,,,,0,,0
+Send OTP For Registration,https://zineup-api.codesncoffee.com/api/v1/user/register-user,/user/register-user,POST,"{ ""name"": ""prakash"", ""email"": ""prakash@codesncoffee.com"" }",201,,,,0,,0
 Email Already Exists,https://zineup-api.codesncoffee.com/api/v1/user/register-user,/user/register-user,POST,"{ ""name"": ""Prakash"", ""email"": ""prakash+4@codesncoffee.com"" }",409,,,,0,,1
 Missing Field,https://zineup-api.codesncoffee.com/api/v1/user/register-user,/user/register-user,POST,"{ ""name"": ""Prakash"", ""email"": """" }",400,,,,0,,1
 Success,https://zineup-api.codesncoffee.com/api/v1/user/verify-otp,/user/verify-otp,POST,"{ ""email"": ""prakash@codesncoffee.com"", ""otp"": 123456 }",200,,,,0,,1
-Invalid OTP,https://zineup-api.codesncoffee.com/api/v1/user/verify-otp,/user/verify-otp,POST,"{ ""email"": ""prakash@codesncoffee.com"", ""otp"": 222202 }",401,,,,0,,1
+Invalid OTP,https://zineup-api.codesncoffee.com/api/v1/user/verify-otp,/user/verify-otp,POST,"{ ""email"": ""prakash@codesncoffee.com"", ""otp"": 222222 }",401,,,,0,,1
 Missing Field,https://zineup-api.codesncoffee.com/api/v1/user/verify-otp,/user/verify-otp,POST,"{ ""email"": ""prakash@codesncoffee.com"", ""otp"":"""" }",400,,,,0,,1
 Send OTP For Login,https://zineup-api.codesncoffee.com/api/v1/user/login,/user/login,POST,"{ ""email"": ""prakash@codesncoffee.com"" }",200,,,,0,,1
 Missing Field,https://zineup-api.codesncoffee.com/api/v1/user/login,/user/login,POST,"{ ""email"": """" }",400,,,,0,,1

@@ -4,9 +4,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +22,11 @@ import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.testng.TestNG;
 import org.testng.annotations.Test;
 
@@ -34,44 +42,78 @@ import io.restassured.specification.RequestSpecification;
 
 @RestController
 @RequestMapping("/api") // Base URL: http://localhost:8080/api
-
 public class TestController {
 
-	@GetMapping("/run-tests")
-	public String runTests() throws CsvValidationException, JSONException {
-
-		// Initialize TestNG and add the listener to capture output
-		TestNG testng = new TestNG();
-		CaptureOutput captureOutput = new CaptureOutput();
-		testng.addListener(captureOutput);
-
-		// Specify the test classes to run
-		testng.setTestClasses(new Class[] { TestController.class }); // Adjust according to your setup
-		testng.run(); // Run the tests
-
-		// Now return the content of the updated output.csv after test execution
-		return readCsvFileAsJson();
-	}
-
-	
-
-	@GetMapping("/status") // Full URL: http://localhost:8080/api/status
-	public String getStatus() {
-		return "Service is running";
-
-	}
-
-	
-
-	private static final String BASE_URL = "https://zineup-api.codesncoffee.com/api/v1";
-	private static final String CSV_FILE_PATH = "ZineApiTestReportInputPostCnc2.csv";
-	private static final String OUTPUT_CSV_FILE_PATH = "ZineApiTestReport_Output.csv";
+    private static final String BASE_URL = "https://zineup-api.codesncoffee.com/api/v1";
+    private static final String CSV_FILE_PATH = "ZineApiTestReportInputPostCnc2.csv";
+    private static final String OUTPUT_CSV_FILE_PATH = "ZineApiTestReport_Output.csv";
     private static final String OUTPUTFOLDER_PATH_STRING = "ReportOutput"; // Path to OutputFiles folder
-//    private static final String OUTPUTFOLDER_PATH_STRING = System.getProperty("java.io.tmpdir") + "ReportOutput"; // Saves to system temp folder
+	private static final int MAX_REPORTS = 5;
+	
+    private final List<String[]> updatedRecords = new ArrayList<>(); // To store all updated records
+    private String xZineToken = ""; // Store token
+    public final Map<String, String> testResults = new HashMap<>();
 
-	private final List<String[]> updatedRecords = new ArrayList<>(); // To store all updated records
-	private String xZineToken = ""; // Store token
-	public final Map<String, String> testResults = new HashMap<>();
+    // Method to handle the test execution
+    @PostMapping("/run-tests")
+    public Map<String, Object> runTests(@RequestParam MultipartFile file) {
+
+        try {
+        	// Path for the uploaded file
+            Path targetPath = Path.of(CSV_FILE_PATH);
+            Path tempFilePath = Files.createTempFile("uploaded-temp-file-", ".csv");
+            try {
+
+                // Save the uploaded file to a temporary location first
+                Files.copy(file.getInputStream(), tempFilePath, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Temporary file created at: " + tempFilePath);
+
+                // Now copy the file to the desired CSV_FILE_PATH
+                Files.copy(tempFilePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("File uploaded and saved at: " + targetPath.toString());
+
+                // Initialize TestNG and add the listener to capture output
+                TestNG testng = new TestNG();
+                CaptureOutput captureOutput = new CaptureOutput();
+                testng.addListener(captureOutput);
+
+                // Specify the test classes to run
+                testng.setTestClasses(new Class[] { TestController.class }); // Adjust according to your setup
+                testng.run(); // Run the tests
+
+                // Now return the content of the updated output.csv after test execution
+                return readCsvFileAsJson();
+
+            } catch(Exception e) {
+            	JSONObject response = new JSONObject();
+            	response.put("error", e.toString());
+            	return response.toMap();
+            }
+            finally {
+                // Delete the temporary file after use
+                if (Files.exists(tempFilePath)) {
+                    try {
+                        Files.delete(tempFilePath);
+                        System.out.println("Temporary file deleted: " + tempFilePath);
+                    } catch (IOException e) {
+                        System.err.println("Failed to delete temporary file: " + e.getMessage());
+                    }
+                }
+            }
+        } catch(Exception e) {
+        	JSONObject response = new JSONObject();
+        	response.put("error", e.toString());
+        	return response.toMap();
+        }
+        
+        
+    }
+
+    // Get status endpoint
+    @GetMapping("/status") // Full URL: http://localhost:8080/api/status
+    public String getStatus() {
+        return "Service is running";
+    }
 
 	@Test(priority = 1)
 	public void VerifyOtp() {
@@ -188,12 +230,6 @@ public class TestController {
 
 		try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE_PATH))) {
 			List<String[]> records = reader.readAll();
-
-//        // Define the updated header with all required columns
-//        String[] header = { "TestName", "ApiUrl", "Endpoint", "Method", "Payload", "ExpectedStatus", "ActualStatus",
-//                "ResponseBody", "Result", "Auth", "Headers", "Critical" };
-//        updatedRecords.add(header); // Add header only once at the beginning
-//        System.out.println("Record fetch: " + records.size());
 
 			// Start from the second row (index 1) to skip the header row
 			for (int i = 1; i < 4; i++) {
@@ -380,8 +416,6 @@ public class TestController {
 
 	private void updateCSV(String testName, String endpoint, String method, String payload, int expectedStatus,
 			int actualStatus, String responseBody, String result, String auth, String headersLogged, String critical) {
-		// Replacing newlines and commas in responseBody and payload to prevent CSV
-		// formatting issues
 		String[] updatedRecord = new String[] { testName, BASE_URL + endpoint, endpoint, method,
 				payload.replace("\n", " ").replace(",", ";"), String.valueOf(expectedStatus),
 				String.valueOf(actualStatus), responseBody.replace("\n", " ").replace(",", ";"), result, auth, // Include
@@ -1176,39 +1210,83 @@ public class TestController {
       } catch (IOException e) {
           System.err.println("Error writing to CSV file: " + e.getMessage());
       }
+      
+      // Delete old reports
+      keepLatestReports(outputFolder, MAX_REPORTS);
+  }
+
+
+  private static void keepLatestReports(File folder, int maxReports) {
+      File[] files = folder.listFiles((dir, name) -> name.startsWith("ReportOutput_") && name.endsWith(".csv"));
+      if (files != null && files.length > maxReports) {
+          // Sort files by last modified time (newest first)
+          Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+
+          // Keep the latest 7 reports and delete older ones
+          for (int i = maxReports; i < files.length; i++) {
+              try {
+                  Files.delete(files[i].toPath());
+                  System.out.println("Deleted old report: " + files[i].getName());
+              } catch (IOException e) {
+                  System.err.println("Error deleting file: " + files[i].getName() + " - " + e.getMessage());
+              }
+          }
+      }
+      
+      
+      
+      
+      
   }
 
   
 //Method to read the CSV file and return the content as JSON
-	private String readCsvFileAsJson() throws CsvValidationException, JSONException {
-		JSONArray jsonArray = new JSONArray();
+  private Map<String, Object> readCsvFileAsJson() throws CsvValidationException, JSONException {
+	  JSONObject response = new JSONObject();
+	  
+	    JSONArray jsonArray = new JSONArray();
+	    boolean criticalFail = false; // Track if any Critical = 1 test case fails
 
-		try (CSVReader csvReader = new CSVReader(new FileReader(OUTPUT_CSV_FILE_PATH))) {
-			String[] nextLine;
-			while ((nextLine = csvReader.readNext()) != null) {
-				JSONObject jsonObject = new JSONObject();
+	    try (CSVReader csvReader = new CSVReader(new FileReader(OUTPUT_CSV_FILE_PATH))) {
+	        String[] nextLine;
+	        while ((nextLine = csvReader.readNext()) != null) {
+	            JSONObject jsonObject = new JSONObject();
 
-				// Map CSV data to JSON fields
-				jsonObject.put("testName", nextLine[0]);
-				jsonObject.put("endpoint", nextLine[1]);
-				jsonObject.put("method", nextLine[2]);
-				jsonObject.put("payload", nextLine[3]);
-				jsonObject.put("expectedStatus", nextLine[4]);
-				jsonObject.put("actualStatus", nextLine[5]);
-				jsonObject.put("responseBody", nextLine[6]);
-				jsonObject.put("resultStatus", nextLine[7]);
-				jsonObject.put("auth", nextLine[8]);
-				jsonObject.put("headersLogged", nextLine[9]);
-				jsonObject.put("critical", nextLine[10]);
+	            // Map CSV data to JSON fields
+	            jsonObject.put("TestName", nextLine[0]);
+	            jsonObject.put("ApiUrl", nextLine[1]);
+	            jsonObject.put("Endpoint", nextLine[2]);
+	            jsonObject.put("Method", nextLine[3]);
+	            jsonObject.put("Payload", nextLine[4]);
+	            jsonObject.put("ExpectedStatus", nextLine[5]);
+	            jsonObject.put("ActualStatus", nextLine[6]);
+	            jsonObject.put("ResponseBody", nextLine[7]);
+	            jsonObject.put("Result", nextLine[8]);
+	            jsonObject.put("Auth", nextLine[9]);
+	            jsonObject.put("Headers", nextLine[10]);
+	            jsonObject.put("Critical", nextLine[11]);
 
-				jsonArray.put(jsonObject);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			return "{\"error\":\"Error reading CSV file: " + e.getMessage() + "\"}";
-		}
+	            // Check for critical failure
+	            if ("1".equals(nextLine[11]) && "Fail".equalsIgnoreCase(nextLine[8])) {
+	                criticalFail = true;
+	            }
 
-		// Return the JSON response as a string
-		return jsonArray.toString();
+	            jsonArray.put(jsonObject);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        response.put("error",  e.getMessage() );
+	        return response.toMap();
+	    } 
+
+	   
+
+	    // Prepend Overall Result to the JSON array
+	    response.put("result", criticalFail ? "Fail" : "Pass");
+	    response.put("data",jsonArray);
+	    
+
+	    // Return the JSON response 
+	    return response.toMap(); 
 	}
 }

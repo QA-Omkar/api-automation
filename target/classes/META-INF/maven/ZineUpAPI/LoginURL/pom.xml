@@ -1,8 +1,7 @@
-<project> xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="https://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd
-https://maven.apache.org/POM/4.0.0 ">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ZineUpAPI</groupId>
     <artifactId>LoginURL</artifactId>
@@ -67,7 +66,11 @@ https://maven.apache.org/POM/4.0.0 ">
             <artifactId>log4j-core</artifactId>
             <version>2.20.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.9</version> <!-- Use the latest stable version -->
+        </dependency>
         <!-- Apache POI for advanced Excel handling -->
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -148,23 +151,31 @@ https://maven.apache.org/POM/4.0.0 ">
             <version>20231013</version>
         </dependency>
 
-
         <!-- Gson for JSON handling -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.11.0</version>
         </dependency>
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.30</version>
-    <scope>provided</scope>
-</dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.10.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
 

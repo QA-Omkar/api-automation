@@ -5,8 +5,17 @@
     <classes>
       <class name="testautomationZineUrl.control.TestController">
         <methods>
-          <include name="printAllRecords"/>
           <include name="CreateZine"/>
+          <include name="GetTemplate"/>
+          <include name="VerifyOtp"/>
+          <include name="Login"/>
+          <include name="GetCompleteZine"/>
+          <include name="GetOthersZine"/>
+          <include name="NewUserRegister"/>
+          <include name="UpdateUser"/>
+          <include name="FetchOwnZine"/>
+          <include name="GetAllSqlZine"/>
+          <include name="GetUser"/>
         </methods>
       </class> <!-- testautomationZineUrl.control.TestController -->
     </classes>
