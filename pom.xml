@@ -87,7 +87,7 @@
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
-            <version>5.5.2</version>
+            <version>5.9</version>
         </dependency>
 
         <!-- ExtentReports for HTML report generation -->

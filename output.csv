@@ -9,4 +9,5 @@
 "GetAllSqlZine","/dynamicEndpoint","GET","{ ""data"": ""value"" }","200","200","{ ""response"": ""success"" }","Success","1","Content-Type: application/json","0"
 "GetOthersZine","/dynamicEndpoint","GET","{ ""data"": ""value"" }","200","200","{ ""response"": ""success"" }","Success","1","Content-Type: application/json","0"
 "FetchOwnZine","/dynamicEndpoint","GET","{ ""data"": ""value"" }","200","200","{ ""response"": ""success"" }","Success","1","Content-Type: application/json","0"
-"printAllRecords","/dynamicEndpoint","GET","{ ""data"": ""value"" }","200","200","{ ""response"": ""success"" }","Success","1","Content-Type: application/json","0"
+"SaveZine","/dynamicEndpoint","GET","{ ""data"": ""value"" }","200","200","{ ""response"": ""success"" }","Success","1","Content-Type: application/json","0"
+"GetYourSaveZine","/dynamicEndpoint","GET","{ ""data"": ""value"" }","200","200","{ ""response"": ""success"" }","Success","1","Content-Type: application/json","0"
